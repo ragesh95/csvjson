@@ -1,16 +1,7 @@
-// function convertToFahrenheit(x){
-// 	return parseInt(x);
-// }
-
-// function calculateInterest(){
-// 	return 'tju';
-// }
-
-// module.exports = {
-// 	convertToFahrenheit : convertToFahrenheit,
-// 	calculateInterest : calculateInterest
-// }
 module.exports = (x)=>{
-	x=parseInt(x);
-	return parseInt(((x*9)/5)+32);
-}
+	let s = parseInt(x, 0);
+	let m = s * 9;
+	m = m / 5;
+	m = m + 32;
+	return parseInt(m, 0);
+};
