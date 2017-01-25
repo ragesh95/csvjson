@@ -1,6 +1,6 @@
-module.exports = function convertCsv(startYear){
-  if (typeof startYear !== "number" || isNaN(startYear)){
-       throw new Error("Not a number");
+module.exports = function convertCsv(startYear) {
+  if (typeof startYear !== 'number' || isNaN(startYear)) {
+       throw new Error('Not a number');
   }
   const fs = require('fs');
   const readLine = require('readline');
@@ -45,5 +45,5 @@ module.exports = function convertCsv(startYear){
     fs.writeFileSync('outputdata/linejson.json', JSON.stringify(lineArr));
     fs.writeFileSync('outputdata/barjson.json', JSON.stringify(barArr));
   });
-}
+};
 
