@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 module.exports = (function(){
   return {
     compareJSONStrings: function(expectedJSONStr, actualJSONStr) {
@@ -55,62 +54,4 @@ module.exports = (function(){
       }
     }
   }
-=======
-module.exports = (function(){
-  return {
-    compareJSONStrings: function(expectedJSONStr, actualJSONStr) {
-      if (!expectedJSONStr || !actualJSONStr) {
-        return;
-      }
-      return compareJSONObjects(JSON.parse(expectedJSONStr), JSON.parse(actualJSONStr));
-    },
-    compareJSONObjects:   function(expectedJSON, actualJSON) {
-      if (!expectedJSON || !actualJSON) {
-        return;
-      }
-      var expectedDataSet = new Set(toDataMap(expectedJSON));
-      var actualJSONObjs = actualJSON;
-      var diffs = [];
-      var matched = [];
-      actualJSONObjs.forEach(function(obj) {
-        var actual = toObjValueHash(obj);
-        if (expectedDataSet.has(actual)) {
-          matched.push(obj);
-        } else {
-          diffs.push(obj);
-        }
-      });
-      if (diffs.length > 0) {
-        // console.log("Differs by ", diffs.length);
-        // console.log("Differences: ", diffs);
-        return {
-          diffs: diffs.length,
-          diffObjs : diffs
-        }
-      } else {
-        // console.log("Data is Same");
-        return {
-          diffs: diffs.length,
-          diffObjs : []
-        }
-      }
-      function toDataMap(data) {
-        return data.map(toObjValueHash);
-      }
-      function toObjValueHash(obj) {
-        // return Object.values(obj).sort().join(';');
-        return objValues(obj).sort().join(';')
-      }
-      function objValues(obj) {
-        var keys = Object.keys(obj);
-        var values = [];
-        keys.forEach(function(keyName) {
-          var val = obj[keyName];
-          values.push(val);
-        });
-        return values;
-      }
-    }
-  }
->>>>>>> 6b1aca1d3e35b6965ab4253b2b236d984f4b2143
 })();
